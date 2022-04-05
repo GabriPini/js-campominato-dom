@@ -59,7 +59,7 @@ function startGame() {
             /*   console.log(this) */
             if (bombArray.includes(cellNum)){
                 cellElement.classList.add('bg_red');
-                alert('KABOOOM HAI PERSO , LA PAGINA STA PER ESSERE RICARICATA ')  
+                alert(`KABOOOM HAI PERSO , ERI ARRIVATO A ${points} PUNTI . ORA LA PAGINA STA PER ESSERE RICARICATA `)  
                 cellElement.innerHTML = ` <i class="fa-solid fa-bomb fa-3x"></i> `
                 setTimeout("location.reload(true);", 1000);
                
@@ -71,6 +71,7 @@ function startGame() {
                 
                 if (points == cellCount - 16){
                     alert(`EHI HAI VINTO !!!! HAI TOTALIZZATO ${points} PUNTI` )
+                    setTimeout("location.reload(true);", 2000);
                 }
                 
             });    

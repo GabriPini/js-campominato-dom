@@ -59,9 +59,10 @@ function startGame() {
             /*   console.log(this) */
             if (bombArray.includes(cellNum)){
                 cellElement.classList.add('bg_red');
-                alert('KABOOOM HAI PERSO')  
-                location.reload();
-                
+                alert('KABOOOM HAI PERSO , LA PAGINA STA PER ESSERE RICARICATA ')  
+                cellElement.innerHTML = ` <i class="fa-solid fa-bomb fa-3x"></i> `
+                setTimeout("location.reload(true);", 1000);
+               
             } else{
                 cellElement.classList.add(`bg_azul`)
                 points++}

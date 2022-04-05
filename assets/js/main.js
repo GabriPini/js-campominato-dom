@@ -67,7 +67,7 @@ function startGame() {
             console.log(points)
             
             if (points == cellCount - 16){
-                alert('EHI HAI VINTO !!!!')
+                alert(`EHI HAI VINTO !!!! HAI TOTALIZZATO ${points} PUNTI` )
             }
             
         });    

@@ -58,19 +58,21 @@ function startGame() {
         cellElement.addEventListener(`click`, () => {
             /*   console.log(this) */
             if (bombArray.includes(cellNum)){
-            cellElement.classList.add('bg_red');
-            alert('KABOOOM HAI PERSO')  
-            
-        } else{
-            cellElement.classList.add(`bg_azul`)
-            points++}
-            console.log(points)
-            
-            if (points == cellCount - 16){
-                alert(`EHI HAI VINTO !!!! HAI TOTALIZZATO ${points} PUNTI` )
-            }
-            
-        });    
+                cellElement.classList.add('bg_red');
+                alert('KABOOOM HAI PERSO')  
+                location.reload();
+                
+            } else{
+                cellElement.classList.add(`bg_azul`)
+                points++}
+                console.log(points)
+                
+                
+                if (points == cellCount - 16){
+                    alert(`EHI HAI VINTO !!!! HAI TOTALIZZATO ${points} PUNTI` )
+                }
+                
+            });    
         gridElement.append(cellElement);
         
         

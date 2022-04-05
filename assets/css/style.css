@@ -39,3 +39,7 @@ footer {
     background-color: rgb(0, 119, 255);
     color: white;
 }
+
+.bg_red {
+    background-color: red;
+}

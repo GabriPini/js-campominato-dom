@@ -15,37 +15,67 @@ const gridElement = document.querySelector(`.grid`);
 //setto la funzione al clik del tasto play
 playButton.addEventListener(`click`,startGame)
 
+//segna punti 
+let points = 0;
+
 //stabilisco i tipi di livelli con il numero massimo di celle 
 typeOfLevel = [100, 81, 49]
 
 // al click del tasto play verra generato la griglia di caselle in base alla difficolta scelta
 function startGame() {
-
+    
     gridElement.innerHTML = ``;
     //Scelgo il livello
     const selLevel = parseInt(selectedLevel.value);
-    console.log(`selLevel`, selLevel);
+    /*   console.log(`selLevel`, selLevel); */
     //stabilisco il numero di celle in base al livello
     const cellCount = typeOfLevel[selLevel]
-    console.log(`cellCount`, cellCount);
+    /* console.log(`cellCount`, cellCount); */
     // calcolo le celle per fila in base all valore del livello scelto
     const cellForRow = Math.sqrt(cellCount);
-
+    
+ 
+    // genera l'array di bombe
+    let bombArray = [];
+    while (bombArray.length < 16) {
+        let bombNum = Math.floor(Math.random() * cellCount) + 1;
+        if (bombArray.includes(bombNum) == false) {
+            bombArray.push(bombNum);
+        }
+    }
+    console.log(bombArray);
+    
+ 
     //stampo le celle a pagina e do la classe per il colore e tutto 
     for ( let cellNum = 1; cellNum <= cellCount; cellNum++){
-
+        
         const cellElement = document.createElement(`div`);
         cellElement.classList.add(`cell`);
         cellElement.innerHTML = cellNum;
         cellElement.style.width = `calc(100% / ${cellForRow})`;
         cellElement.style.height = `calc(100% / ${cellForRow})`;
-        cellElement.addEventListener(`click`, () => {
-          /*   console.log(this) */
-            cellElement.classList.toggle(`bg_azul`)
-        });
         gridElement.append(cellElement);
+        cellElement.addEventListener(`click`, () => {
+            /*   console.log(this) */
+            if (bombArray.includes(cellNum)){
+            cellElement.classList.add('bg_red');
+            alert('KABOOOM HAI PERSO')  
+            
+        } else{
+            cellElement.classList.add(`bg_azul`)
+            points++}
+            console.log(points)
+            
+            if (points == cellCount - 16){
+                alert('EHI HAI VINTO !!!!')
+            }
+            
+        });    
+        gridElement.append(cellElement);
+        
+        
+        /*   console.log(cellNum) */
+    }    
+}    
 
-        console.log(cellNum)
-    }
-}
-
+    

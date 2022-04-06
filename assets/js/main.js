@@ -60,15 +60,15 @@ function startGame() {
             if (bombArray.includes(cellNum)){
                 const cells = document.querySelectorAll('.cell')
                 for (let x = 0; x < cells.length; x++) {
-                    if (bombArray.includes(x+1)){
+                    if (bombArray.includes(x+1)){// SELEZIONE  BOMBE
                         cells[x].classList.add('bg_red')
                         cells[x].innerHTML = ` <i class="fa-solid fa-bomb fa-3x"></i> `
                     }
                 }
                 
-                cellElement.classList.add('bg_red');
+            /*            cellElement.classList.add('bg_red'); */ // SELEZIONE SINGOLA BOMBA
                 alert(`KABOOOM HAI PERSO , ERI ARRIVATO A ${points} PUNTI . ORA LA PAGINA STA PER ESSERE RICARICATA `)  
-                cellElement.innerHTML = ` <i class="fa-solid fa-bomb fa-3x"></i> `
+            /*     cellElement.innerHTML = ` <i class="fa-solid fa-bomb fa-3x"></i> ` */// SELEZIONE SINGOLA BOMBA
                 setTimeout("location.reload(true);", 1000);
                 
                

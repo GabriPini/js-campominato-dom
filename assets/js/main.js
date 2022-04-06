@@ -58,11 +58,20 @@ function startGame() {
         cellElement.addEventListener(`click`, () => {
             /*   console.log(this) */
             if (bombArray.includes(cellNum)){
+                const cells = document.querySelectorAll('.cell')
+                for (let x = 0; x < cells.length; x++) {
+                    if (bombArray.includes(x+1)){
+                        cells[x].classList.add('bg_red')
+                        cells[x].innerHTML = ` <i class="fa-solid fa-bomb fa-3x"></i> `
+                    }
+                }
                 
                 cellElement.classList.add('bg_red');
                 alert(`KABOOOM HAI PERSO , ERI ARRIVATO A ${points} PUNTI . ORA LA PAGINA STA PER ESSERE RICARICATA `)  
                 cellElement.innerHTML = ` <i class="fa-solid fa-bomb fa-3x"></i> `
                 setTimeout("location.reload(true);", 1000);
+                
+               
                 
             } else{
                 cellElement.classList.add(`bg_azul`)
@@ -70,18 +79,18 @@ function startGame() {
                 console.log(points)
                 
                 
-             if (points == cellCount - 16){
+                if (points == cellCount - 16){
                     alert(`EHI HAI VINTO !!!! HAI TOTALIZZATO ${points} PUNTI` )
                     setTimeout("location.reload(true);", 2000);
                 }
                 
             });    
-        gridElement.append(cellElement);
-        
-        
-        /*   console.log(cellNum) */
+            gridElement.append(cellElement);
+            
+            
+            /*   console.log(cellNum) */
+        }    
+        // Manca il bonus per girare tutte le bombe sulla griglia 
     }    
-    // Manca il bonus per girare tutte le bombe sulla griglia 
-}    
-
+   
     
